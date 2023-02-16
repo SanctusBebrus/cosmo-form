@@ -3,7 +3,7 @@ from flask import Flask, request, url_for
 app = Flask(__name__)
 
 
-@app.route('/form_sample', methods=['POST', 'GET'])
+@app.route('/form_sample', methods=['GET'])
 def form_sample():
     if request.method == 'GET':
         return f'''<!doctype html>
@@ -113,16 +113,6 @@ def form_sample():
                             </div>
                             </body>
                           </html>'''
-    elif request.method == 'POST':
-        print(request.form['email'])
-        print(request.form['password'])
-        print(request.form['class'])
-        print(request.form['file'])
-        print(request.form['about'])
-        print(request.form['accept'])
-        print(request.form['sex'])
-        return "Форма отправлена"
-
 
 if __name__ == '__main__':
     app.run(port=8080, host='127.0.0.1')
